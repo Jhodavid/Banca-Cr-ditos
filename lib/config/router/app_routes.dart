@@ -2,8 +2,8 @@
 enum AppRoutesEnum {
   onBoarding,
   signUp,
-  login,
-  check,
+  singIn,
+  signUpCheck,
   home,
   homeCalculateLoan,
   homeCreditOptions,
@@ -16,8 +16,8 @@ extension AppRoutesEnumExtension on AppRoutesEnum {
     switch(this) {
       case AppRoutesEnum.onBoarding: return '/onBoarding';
       case AppRoutesEnum.signUp: return '/signUp';
-      case AppRoutesEnum.login: return '/login';
-      case AppRoutesEnum.check: return '/check';
+      case AppRoutesEnum.singIn: return '/singIn';
+      case AppRoutesEnum.signUpCheck: return '/signUpCheck';
       case AppRoutesEnum.home: return '/home';
       case AppRoutesEnum.homeCalculateLoan: return '/homeCalculateLoan';
       case AppRoutesEnum.homeCreditOptions: return '/homeCreditOptions';

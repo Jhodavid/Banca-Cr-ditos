@@ -1,4 +1,8 @@
 {
     "@@locale": "es",
-    "app_name": "Banking Credits"
+    "app_name": "Banca créditos",
+    "on_boarding_first_message": "Accede a créditos\ncon un solo toque y sin\ncomplicaciones.",
+    "on_boarding_second_message": "Toma el control de tus\nfinanzas con confianza y\naccede a ellas sin\nrestricciones.",
+    "on_boarding_sign_in": "Ingresar",
+    "on_boarding_sign_up": "Registrarme"
 }

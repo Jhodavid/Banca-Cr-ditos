@@ -25,7 +25,60 @@ class AppTheme {
       fontFamily: 'Inter',
       colorScheme: colorLightScheme,
       textTheme: const TextTheme().copyWith(
+        bodyLarge: const TextStyle(
+          color: Colors.black,
+        ),
+        displaySmall: const TextStyle(
+          fontSize: 30,
+          color: Colors.white,
+        ),
+        labelLarge: const TextStyle(
+          fontWeight: FontWeight.bold
+        ),
+        labelMedium: const TextStyle(
+          color: Colors.black,
+          fontSize: 14
+        ),
+        titleLarge: const TextStyle(
+          color: Colors.black,
+          fontSize: 26
+        ),
+        titleMedium: const TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 24
+        ),
+        titleSmall: const TextStyle(
+          color: Colors.grey
+        )
+      ),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: Colors.white,
+        linearTrackColor: Colors.grey,
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: ButtonStyle(
+          fixedSize: const MaterialStatePropertyAll<Size>(
+            Size(double.infinity, 45)
+          ),
+          shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
 
+        )
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5)
+        ),
+      ),
+      checkboxTheme: CheckboxThemeData(
+        checkColor: MaterialStatePropertyAll<Color>(colorLightScheme.primary),
+        fillColor: const MaterialStatePropertyAll<Color>(Colors.white),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        side: const BorderSide(color: Color(0xFFD0D5DD))
       )
     );
   }
