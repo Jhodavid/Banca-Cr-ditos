@@ -1,16 +1,7 @@
 # banca_creditos
 
-A new Flutter project.
+Nuevo proyecto, App para simulación de créditos bancarios.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para generación de código necesario para las traducciones y la entidad de base de datos puede ser requerido ejecutar el comando "dart run build_runner build".

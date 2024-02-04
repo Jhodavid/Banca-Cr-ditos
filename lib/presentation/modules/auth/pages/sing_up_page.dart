@@ -1,4 +1,6 @@
+import 'package:banca_creditos/presentation/modules/auth/providers/sing_up_form_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:go_router/go_router.dart';
 
@@ -11,12 +13,12 @@ import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
 
 
 
-class SingUpPage extends StatelessWidget {
+class SingUpPage extends ConsumerWidget {
 
   const SingUpPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
 
     final topDevicePadding = MediaQuery.of(context).padding.top;
@@ -24,6 +26,9 @@ class SingUpPage extends StatelessWidget {
 
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+
+    final singUpFormState = ref.watch(singUpFormProvider);
+    final singUpFormNotifier = ref.watch(singUpFormProvider.notifier);
 
     return Scaffold(
       body: GestureDetector(
@@ -62,32 +67,24 @@ class SingUpPage extends StatelessWidget {
                               label: l10n.auth_full_name_label,
                               hintText: l10n.auth_full_name_hint,
                               prefixIconData: Icons.person_outline,
-                              onChanged: (value) {
-
-                              },
+                              onChanged: singUpFormNotifier.onChangedFullName,
                             ),
                             AppTextField(
                               label: l10n.auth_id_label,
                               hintText: l10n.auth_id_hint,
-                              onChanged: (value) {
-
-                              },
+                              onChanged: singUpFormNotifier.onChangedId,
                             ),
                             AppTextField(
                               label: l10n.auth_email_label,
                               hintText: l10n.auth_email_hint,
                               prefixIconData: Icons.person_outline,
-                              onChanged: (value) {
-
-                              },
+                              onChanged: singUpFormNotifier.onChangedEmail,
                             ),
                             AppTextField(
                               label: l10n.auth_password_label,
                               hintText: l10n.auth_password_hint,
                               prefixIconData: Icons.lock_outline,
-                              onChanged: (value) {
-
-                              },
+                              onChanged: singUpFormNotifier.onChangedPassword,
                             ),
                           ],
                         ),
@@ -101,12 +98,10 @@ class SingUpPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Checkbox(
-                        value: true,
+                        value: singUpFormState.isAcceptedTermsAndConditions,
                         checkColor: Colors.white,
-                        fillColor: true ? MaterialStatePropertyAll<Color>(Theme.of(context).colorScheme.primary) : null,
-                        onChanged: (value) {
-
-                        },
+                        fillColor: singUpFormState.isAcceptedTermsAndConditions ? MaterialStatePropertyAll<Color>(Theme.of(context).colorScheme.primary) : null,
+                        onChanged: (_) => singUpFormNotifier.onPressedAcceptedTermsAndConditions(),
                       ),
                       Container(
                         padding: const EdgeInsets.only(top: 15),
@@ -120,7 +115,9 @@ class SingUpPage extends StatelessWidget {
                           children: <TextSpan>[
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_1,
-                              style: Theme.of(context).textTheme.labelSmall
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                color: Colors.black
+                              )
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_2,
@@ -130,7 +127,9 @@ class SingUpPage extends StatelessWidget {
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_3,
-                              style: Theme.of(context).textTheme.labelSmall
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                color: Colors.black
+                              )
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_4,
@@ -140,7 +139,9 @@ class SingUpPage extends StatelessWidget {
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_5,
-                              style: Theme.of(context).textTheme.labelSmall
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                color: Colors.black
+                              )
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_6,
@@ -150,7 +151,9 @@ class SingUpPage extends StatelessWidget {
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_7,
-                              style: Theme.of(context).textTheme.labelSmall
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                color: Colors.black
+                              )
                             ),
                           ],
                           ),
