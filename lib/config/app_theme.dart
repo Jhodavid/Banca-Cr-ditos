@@ -92,6 +92,20 @@ class AppTheme {
         fillColor: const MaterialStatePropertyAll<Color>(Colors.white),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         side: const BorderSide(color: Color(0xFFD0D5DD))
+      ),
+      dataTableTheme: const DataTableThemeData(
+        horizontalMargin: 0,
+        headingTextStyle: TextStyle(
+          color: Colors.black,
+          fontStyle: FontStyle.normal,
+          fontWeight: FontWeight.bold
+        ),
+        dividerThickness: 0.0,
+        columnSpacing: 0,
+        dataTextStyle: TextStyle(
+          color: Colors.black,
+          fontStyle: FontStyle.normal,
+        )
       )
     );
   }

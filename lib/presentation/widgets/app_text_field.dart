@@ -25,8 +25,8 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double inputHeight = 74;
-    inputHeight += helperText != null ? 16 : 0;
+    double inputHeight = 70;
+    inputHeight += helperText != null ? 20 : 0;
     inputHeight += label != null ? 20 : 1;
 
     return SizedBox(
@@ -71,13 +71,15 @@ class AppTextField extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 4),
-          if(helperText != null) Text(
-            helperText!,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.grey
-            ),
-          ),
+          if(helperText != null) ...[
+            const SizedBox(height: 4),
+            Text(
+              helperText!,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Colors.grey
+              ),
+            )
+          ],
           const SizedBox(height: 16)
         ],
       ),

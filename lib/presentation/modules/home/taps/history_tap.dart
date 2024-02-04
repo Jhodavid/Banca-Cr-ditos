@@ -1,4 +1,5 @@
 import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:banca_creditos/presentation/modules/home/widgets/history_data_table.dart';
 import 'package:flutter/material.dart';
 
 
@@ -33,6 +34,21 @@ class HistoryTap extends StatelessWidget {
             ),
             SizedBox(height: height*0.01),
             const Divider(color: Color(0xFFB1B5BB)),
+
+            const HistoryDataTable(),
+
+            SizedBox(height: height*0.02),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.error_outline, color: Colors.grey, size: 26),
+                const SizedBox(width: 5),
+                Text(
+                  'No hay mas datos por mostrar',
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+              ],
+            ),
           ],
         ),
       ),

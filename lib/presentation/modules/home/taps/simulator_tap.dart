@@ -67,7 +67,6 @@ class SimulatorTab extends StatelessWidget {
                   isEnabled: false,
                   labelTextColor: Colors.black,
                   hintText: '\$ 0',
-                  helperText: 'Elija un plazo desde 12 hasta 84 meses',
                   onChanged: (value) {
 
                   },
@@ -76,6 +75,7 @@ class SimulatorTab extends StatelessWidget {
                   label: '¿A cuántos meses?',
                   labelTextColor: Colors.black,
                   hintText: '48',
+                  helperText: 'Elija un plazo desde 12 hasta 84 meses',
                   onChanged: (value) {
 
                   },
