@@ -56,12 +56,13 @@ class SingInPage extends StatelessWidget {
                         TextSpan(
                           text: l10n.auth_sing_in_message_part_1,
                           style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            color: Colors.black,
                             fontWeight: FontWeight.bold
                           )
                         ),
                         TextSpan(
                           text: l10n.auth_sing_in_message_part_2,
-                          style: Theme.of(context).textTheme.labelSmall
+                          style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Colors.black)
                         )
                       ],
                     ),
@@ -115,7 +116,7 @@ class SingInPage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 15),
                         child: Text(
                           l10n.auth_remember,
-                          style: Theme.of(context).textTheme.labelSmall
+                          style: Theme.of(context).textTheme.labelSmall?.copyWith(color: Colors.black)
                         ),
                       ),
                       const Spacer(),

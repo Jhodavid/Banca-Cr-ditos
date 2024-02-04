@@ -1,3 +1,4 @@
+import 'package:banca_creditos/config/localization/app_localization.dart';
 import 'package:banca_creditos/presentation/modules/home/widgets/save_simulate_modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,7 @@ class SimulatorDetailTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
 
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
@@ -30,7 +32,7 @@ class SimulatorDetailTap extends StatelessWidget {
             children: [
               const SimulateDetailFrame(),
               AppFilledButton(
-                text: 'Guardar cotización',
+                text: l10n.home_save_quote,
                 backgroundColor: Colors.white,
                 textColor: Theme.of(context).colorScheme.primary,
                 borderColor: Theme.of(context).colorScheme.primary,

@@ -26,28 +26,28 @@ class SimulateDataTable extends StatelessWidget {
           dataRowMaxHeight: 35,
           dataRowMinHeight: 35,
           headingRowHeight: 40,
-          columns: const <DataColumn>[
+          columns: <DataColumn>[
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'No. Cuota',
+                title: l10n.home_no_installments,
                 portionSize: 0.2,
               )
             ),
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'Valor de cuota',
+                title: l10n.home_installments_value,
                 portionSize: 0.3,
               )
             ),
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'Interés',
+                title: l10n.home_interest,
                 portionSize: 0.2,
               )
             ),
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'Abono a capital',
+                title: l10n.home_capital_credit,
                 portionSize: 0.3,
               )
             ),

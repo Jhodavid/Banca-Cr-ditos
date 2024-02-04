@@ -59,8 +59,8 @@ class SingUpPage extends StatelessWidget {
                         child: Column(
                           children: [
                             AppTextField(
-                              label: l10n.auth_email_label,
-                              hintText: l10n.auth_email_hint,
+                              label: l10n.auth_full_name_label,
+                              hintText: l10n.auth_full_name_hint,
                               prefixIconData: Icons.person_outline,
                               onChanged: (value) {
 

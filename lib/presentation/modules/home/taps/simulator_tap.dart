@@ -35,7 +35,7 @@ class SimulatorTab extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Simulador de Crédito',
+                      l10n.home_credit_simulator,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         color: Theme.of(context).colorScheme.primary
                       ),
@@ -63,23 +63,23 @@ class SimulatorTab extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'Ingresa los datos para tu crédito según lo que necesites.',
+                    l10n.home_enter_data_for_your_credit,
                   style: Theme.of(context).textTheme.bodyLarge
                 ),
                 SizedBox(height: height*0.02),
                 AppTextField(
-                  label: '¿Qué tipo de créditos deseas realizar?',
+                  label: l10n.home_what_type_credit,
                   labelTextColor: Colors.black,
-                  hintText: 'Selecciona el tipo de créditos',
+                  hintText: l10n.home_what_select_credit_type,
                   onChanged: (value) {
 
                   },
                 ),
                 AppTextField(
-                  label: '¿Cuántos es tu salario base?',
+                  label: l10n.home_how_much_your_salary,
                   labelTextColor: Colors.black,
                   hintText: "\$ 10'000.000,00",
-                  helperText: 'Digita tu salario para calcular el préstamo que necesitas',
+                  helperText: l10n.home_enter_your_salary_to_calculate,
                   onChanged: (value) {
 
                   },
@@ -93,10 +93,10 @@ class SimulatorTab extends StatelessWidget {
                   },
                 ),
                 AppTextField(
-                  label: '¿A cuántos meses?',
+                  label: l10n.home_how_many_months,
                   labelTextColor: Colors.black,
                   hintText: '48',
-                  helperText: 'Elija un plazo desde 12 hasta 84 meses',
+                  helperText: l10n.home_choose_term_12_to_84_months,
                   onChanged: (value) {
 
                   },
@@ -105,7 +105,7 @@ class SimulatorTab extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width*0.04),
                   child: AppFilledButton(
-                    text: 'Simular',
+                    text: l10n.home_simulate,
                     onPressed: () => HomeModuleUtils.homePageViewController.jumpToPage(2)
                   ),
                 ),

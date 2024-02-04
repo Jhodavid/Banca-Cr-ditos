@@ -14,28 +14,34 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
-
     final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: width*0.05),
       child: Row(
         children: [
-          if(isVisibleMessage) Text(
-            'Hola Jesús G. 👋',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.normal),
+          if(isVisibleMessage) Row(
+            children: [
+              Text(
+                context.getHomeHiUser('Jesús G.'),
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.normal),
+              ),
+              SizedBox(
+                width: 20,
+                height: 20,
+                child: Image.asset('assets/waving_hand.png')
+              )
+            ],
           ),
           const Spacer(),
           SizedBox(
             width: 50,
             height: 50,
             child: TextButton(
-                onPressed: () {
+              onPressed: () {
 
-                },
-                child: Image.asset('assets/notification.png')
+              },
+              child: Image.asset('assets/notification.png')
             ),
           )
         ],

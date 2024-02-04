@@ -25,11 +25,11 @@ class HistoryTap extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Historial de créditos',
+              l10n.home_credit_history,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
-              'Aquí encontrarás tu historial de créditos y el registro de todas las simulaciones..',
+                l10n.home_here_you_will_find_your_credit_history,
               style: Theme.of(context).textTheme.bodyLarge
             ),
             SizedBox(height: height*0.01),
@@ -44,7 +44,7 @@ class HistoryTap extends StatelessWidget {
                 const Icon(Icons.error_outline, color: Colors.grey, size: 26),
                 const SizedBox(width: 5),
                 Text(
-                  'No hay mas datos por mostrar',
+                  l10n.home_no_more_data_to_show,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ],

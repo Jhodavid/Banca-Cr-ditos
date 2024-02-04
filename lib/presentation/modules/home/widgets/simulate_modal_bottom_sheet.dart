@@ -1,10 +1,8 @@
-import 'package:banca_creditos/presentation/modules/home/widgets/floating_button_close_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-
-import 'package:go_router/go_router.dart';
 
 
 import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:banca_creditos/presentation/modules/home/widgets/floating_button_close_bottom_sheet.dart';
 
 
 
@@ -38,7 +36,7 @@ class SimulateModalBottomSheet extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Cuota máxima de préstamo',
+                        l10n.home_maximum_loan_installment,
                         style: Theme.of(context).textTheme.labelLarge
                       ),
                       Text(
@@ -46,7 +44,7 @@ class SimulateModalBottomSheet extends StatelessWidget {
                         style: Theme.of(context).textTheme.displayMedium
                       ),
                       Text(
-                        '*Este valor suele cambiar con respecto a tu salario',
+                        l10n.home_this_value_usually_changes_with_your_salary,
                         style: Theme.of(context).textTheme.labelSmall?.copyWith(
                           color: Theme.of(context).colorScheme.primary
                         )
@@ -59,16 +57,16 @@ class SimulateModalBottomSheet extends StatelessWidget {
             ),
           ),
           SizedBox(height: height*0.02),
-          const _LabelAndValueData(
-            title: 'Tasa Efectiva Anual desde',
+          _LabelAndValueData(
+            title: l10n.home_annual_percentage_rate,
             value: '43.26%'
           ),
-          const _LabelAndValueData(
-            title: 'Tasa Mensual Vencida desde',
+          _LabelAndValueData(
+            title: l10n.home_monthly_percentage_rate,
             value: '3.04%'
           ),
-          const _LabelAndValueData(
-            title: 'Valor total del prestamo',
+          _LabelAndValueData(
+            title: l10n.home_total_amount,
             value: '\$950'
           ),
           SizedBox(height: height*0.01),
@@ -79,7 +77,7 @@ class SimulateModalBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Valor total a pagar\n(capital + interes + seguro)',
+                l10n.home_principal_interest_insurance,
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.bold

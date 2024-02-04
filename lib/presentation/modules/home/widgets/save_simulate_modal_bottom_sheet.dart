@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:banca_creditos/config/localization/app_localization.dart';
 import 'package:banca_creditos/presentation/modules/home/widgets/floating_button_close_bottom_sheet.dart';
+import 'package:go_router/go_router.dart';
 
 
 
@@ -56,12 +57,12 @@ class SaveSimulateModalBottomSheet extends StatelessWidget {
                   ),
                   SizedBox(height: height*0.03),
                   Text(
-                    '¿Está seguro que desea\nGuardar la cotización?',
+                    l10n.home_are_your_sure_save_quote,
                     style: Theme.of(context).textTheme.labelLarge
                   ),
                   SizedBox(height: height*0.015),
                   Text(
-                    'La cotización realizada la podrás consultar\nen tu historial de créditos.',
+                    l10n.home_you_will_consult_quote_in_history,
                     style: Theme.of(context).textTheme.labelSmall?.copyWith(
                       color: Colors.grey
                     ),
@@ -69,20 +70,18 @@ class SaveSimulateModalBottomSheet extends StatelessWidget {
                   ),
                   SizedBox(height: height*0.015),
                   AppFilledButton(
-                    text: 'Guardar',
+                    text: l10n.home_save,
                     onPressed: () {
 
                     },
                   ),
                   SizedBox(height: height*0.005),
                   AppFilledButton(
-                    text: 'Cancelar',
+                    text: l10n.home_cancel,
                     backgroundColor: Colors.white,
                     textColor: Theme.of(context).colorScheme.primary,
                     borderColor: Theme.of(context).colorScheme.primary,
-                    onPressed: () {
-
-                    },
+                    onPressed: () => context.pop(),
                   ),
                 ],
               ),

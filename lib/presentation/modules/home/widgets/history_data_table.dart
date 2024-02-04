@@ -25,28 +25,28 @@ class HistoryDataTable extends StatelessWidget {
           dataRowMaxHeight: 35,
           dataRowMinHeight: 35,
           headingRowHeight: 40,
-          columns: const <DataColumn>[
+          columns: <DataColumn>[
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'Monto de crédito',
+                title: l10n.home_amount_of_credit,
                 portionSize: 0.36,
               )
             ),
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'Fecha',
+                title: l10n.home_date,
                 portionSize: 0.19,
               )
             ),
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'No. de cuotas',
+                title: l10n.home_number_of_installments,
                 portionSize: 0.3,
               )
             ),
             DataColumn(
               label: AppColumnHeaderContainer(
-                title: 'Interés',
+                title: l10n.home_interest,
                 portionSize: 0.15,
               )
             ),
