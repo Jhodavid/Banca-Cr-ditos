@@ -7,6 +7,7 @@ class AppFilledButton extends StatelessWidget {
   final String text;
   final Color? backgroundColor;
   final Color? textColor;
+  final Color? borderColor;
   final void Function() onPressed;
 
   const AppFilledButton({
@@ -14,6 +15,7 @@ class AppFilledButton extends StatelessWidget {
     required this.text,
     this.backgroundColor,
     this.textColor,
+    this.borderColor,
     required this.onPressed
   });
 
@@ -25,12 +27,19 @@ class AppFilledButton extends StatelessWidget {
       width: width,
       child: FilledButton(
         style: ButtonStyle(
-          backgroundColor: backgroundColor != null ? MaterialStatePropertyAll<Color>(backgroundColor!) : null
+          backgroundColor: backgroundColor != null ? MaterialStatePropertyAll<Color>(backgroundColor!) : null,
+          shape: borderColor != null
+            ? MaterialStatePropertyAll<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                side: BorderSide(color: borderColor!),
+                borderRadius: BorderRadius.circular(10)
+              )
+            ) : null
         ),
         onPressed: onPressed,
         child: Text(
           text,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
             color: textColor
           ),
         )

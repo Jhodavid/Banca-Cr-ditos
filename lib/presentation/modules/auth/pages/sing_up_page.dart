@@ -120,37 +120,37 @@ class SingUpPage extends StatelessWidget {
                           children: <TextSpan>[
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_1,
-                              style: Theme.of(context).textTheme.labelMedium
+                              style: Theme.of(context).textTheme.labelSmall
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_2,
-                              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
                                 color: Theme.of(context).colorScheme.primary
                               )
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_3,
-                              style: Theme.of(context).textTheme.labelMedium
+                              style: Theme.of(context).textTheme.labelSmall
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_4,
-                              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
                                 color: Theme.of(context).colorScheme.primary
                               )
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_5,
-                              style: Theme.of(context).textTheme.labelMedium
+                              style: Theme.of(context).textTheme.labelSmall
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_6,
-                              style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
                                 color: Theme.of(context).colorScheme.primary
                               )
                             ),
                             TextSpan(
                               text: l10n.auth_term_and_policy_part_7,
-                              style: Theme.of(context).textTheme.labelMedium
+                              style: Theme.of(context).textTheme.labelSmall
                             ),
                           ],
                           ),
@@ -172,7 +172,7 @@ class SingUpPage extends StatelessWidget {
                   children: [
                     Text(
                         l10n.auth_do_you_have_account,
-                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: Colors.grey
                       )
                     ),
@@ -180,7 +180,7 @@ class SingUpPage extends StatelessWidget {
                       onPressed: () => context.push(AppRoutesEnum.singIn.path),
                       child: Text(
                         l10n.auth_log_in,
-                        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
                           color: Theme.of(context).colorScheme.primary
                         )
                       ),

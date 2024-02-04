@@ -1,8 +1,11 @@
 import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:banca_creditos/presentation/modules/home/utils/home_module_utils.dart';
 import 'package:banca_creditos/presentation/modules/home/widgets/home_app_bar.dart';
+import 'package:banca_creditos/presentation/modules/home/widgets/simulate_modal_bottom_sheet.dart';
 import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
 import 'package:banca_creditos/presentation/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 
 
@@ -34,11 +37,29 @@ class SimulatorTab extends StatelessWidget {
                     Text(
                       'Simulador de Crédito',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.primary
+                        color: Theme.of(context).colorScheme.primary
                       ),
                     ),
                     const SizedBox(width: 5),
-                    Icon(Icons.error_outline, color: Theme.of(context).colorScheme.primary, size: 26),
+                    TextButton(
+                      child: Icon(
+                        Icons.error_outline,
+                        color: Theme.of(context).colorScheme.primary,
+                        size: 26
+                      ),
+                      onPressed: () {
+                        showModalBottomSheet(
+                          constraints: BoxConstraints(
+                            maxHeight: height*0.45
+                          ),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          context: context,
+                            builder: (_) {
+                              return const SimulateModalBottomSheet();
+                            },
+                        );
+                      },
+                    ),
                   ],
                 ),
                 Text(
@@ -85,9 +106,7 @@ class SimulatorTab extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: width*0.04),
                   child: AppFilledButton(
                     text: 'Simular',
-                    onPressed: () {
-
-                    },
+                    onPressed: () => HomeModuleUtils.homePageViewController.jumpToPage(2)
                   ),
                 ),
               ],

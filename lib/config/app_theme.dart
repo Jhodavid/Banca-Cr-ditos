@@ -31,15 +31,24 @@ class AppTheme {
           color: Colors.grey,
           fontSize: 14
         ),
+        displayMedium: const TextStyle(
+          fontSize: 32,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+        ),
         displaySmall: const TextStyle(
           fontSize: 30,
           color: Colors.white,
         ),
         labelLarge: const TextStyle(
-          fontWeight: FontWeight.bold
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 18
         ),
         labelMedium: const TextStyle(
-          color: Colors.black,
+          fontSize: 16
+        ),
+        labelSmall: const TextStyle(
           fontSize: 14
         ),
         titleLarge: const TextStyle(
@@ -106,6 +115,10 @@ class AppTheme {
           color: Colors.black,
           fontStyle: FontStyle.normal,
         )
+      ),
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white
       )
     );
   }

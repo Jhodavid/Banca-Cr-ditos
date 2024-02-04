@@ -37,7 +37,7 @@ class ExternalAuthFilledButton extends StatelessWidget {
         },
         label: Text(
           text,
-          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
             color: Colors.black
           )
         )

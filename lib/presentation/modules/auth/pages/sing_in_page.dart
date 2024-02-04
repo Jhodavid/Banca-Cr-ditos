@@ -55,13 +55,13 @@ class SingInPage extends StatelessWidget {
                       children: <TextSpan>[
                         TextSpan(
                           text: l10n.auth_sing_in_message_part_1,
-                          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          style: Theme.of(context).textTheme.labelSmall?.copyWith(
                             fontWeight: FontWeight.bold
                           )
                         ),
                         TextSpan(
                           text: l10n.auth_sing_in_message_part_2,
-                          style: Theme.of(context).textTheme.labelMedium
+                          style: Theme.of(context).textTheme.labelSmall
                         )
                       ],
                     ),
@@ -115,7 +115,7 @@ class SingInPage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 15),
                         child: Text(
                           l10n.auth_remember,
-                          style: Theme.of(context).textTheme.labelMedium
+                          style: Theme.of(context).textTheme.labelSmall
                         ),
                       ),
                       const Spacer(),
@@ -123,7 +123,7 @@ class SingInPage extends StatelessWidget {
                         onPressed: () => context.push(AppRoutesEnum.signUp.path),
                         child: Text(
                           l10n.auth_forgot_password,
-                          style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          style: Theme.of(context).textTheme.labelSmall?.copyWith(
                               color: Theme.of(context).colorScheme.primary
                           )
                         ),
@@ -195,7 +195,7 @@ class SingInPage extends StatelessWidget {
                   children: [
                     Text(
                         l10n.auth_dont_have_account,
-                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: Colors.grey
                       )
                     ),
@@ -203,7 +203,7 @@ class SingInPage extends StatelessWidget {
                       onPressed: () => context.push(AppRoutesEnum.signUp.path),
                       child: Text(
                         l10n.auth_register_in,
-                        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
                           color: Theme.of(context).colorScheme.primary
                         )
                       ),

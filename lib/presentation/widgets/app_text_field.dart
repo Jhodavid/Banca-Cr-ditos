@@ -36,12 +36,12 @@ class AppTextField extends StatelessWidget {
         children: [
           if(label != null) Text(
             label!,
-            style: Theme.of(context).textTheme.labelMedium?.copyWith(
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
               color: labelTextColor
             ),
           ),
           Container(
-            height: 55,
+            height: 54,
             padding: EdgeInsets.only(top: label != null ? 10 : 0),
             child: TextField(
               enabled: isEnabled,

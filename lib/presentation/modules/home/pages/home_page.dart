@@ -1,6 +1,7 @@
 import 'package:banca_creditos/presentation/modules/home/taps/history_tap.dart';
 import 'package:banca_creditos/presentation/modules/home/taps/simulator_detail_tap.dart';
 import 'package:banca_creditos/presentation/modules/home/taps/simulator_tap.dart';
+import 'package:banca_creditos/presentation/modules/home/utils/home_module_utils.dart';
 import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
 import 'package:banca_creditos/presentation/widgets/app_text_field.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   int _pageIndex = 0;
-  final pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           ),
           child: PageView(
             physics: const NeverScrollableScrollPhysics(),
-            controller: pageController,
+            controller: HomeModuleUtils.homePageViewController,
             onPageChanged: (value) {
               setState(() {
                 if(value >= 2) {
@@ -68,19 +68,19 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             // backgroundColor: MyLightTheme.btnGreen,
             icon: Icon(
-              Icons.home_outlined
+              Icons.home_rounded
             ),
             label: 'Home'
           ),
           BottomNavigationBarItem(
             // backgroundColor: MyLightTheme.btnGreen,
             icon: Icon(
-              Icons.home_outlined
+              Icons.wallet_rounded
             ),
             label: 'Historial créditos'
           )
         ],
-        onTap: (value) => pageController.jumpToPage(value),
+        onTap: (value) => HomeModuleUtils.homePageViewController.jumpToPage(value),
       )
     );
   }
