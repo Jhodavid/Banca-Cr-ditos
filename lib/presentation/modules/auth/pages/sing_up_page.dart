@@ -1,10 +1,13 @@
-import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
+
 import 'package:banca_creditos/config/router/app_routes.dart';
-import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
 import 'package:banca_creditos/presentation/widgets/app_logo.dart';
 import 'package:banca_creditos/presentation/widgets/app_text_field.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
 
 
 
@@ -39,11 +42,11 @@ class SingUpPage extends StatelessWidget {
                 const AppLogo(),
                 SizedBox(height: height*0.03),
                 Text(
-                  'Regístrate',
+                  l10n.auth_register_in,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Text(
-                  'Solo te tomará unos minutos.',
+                  l10n.auth_only_take_few_minutes,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 SizedBox(height: height*0.03),
@@ -56,31 +59,31 @@ class SingUpPage extends StatelessWidget {
                         child: Column(
                           children: [
                             AppTextField(
-                              label: 'Nombre completo',
-                              hintText: 'Escribe tu nombre',
+                              label: l10n.auth_email_label,
+                              hintText: l10n.auth_email_hint,
                               prefixIconData: Icons.person_outline,
                               onChanged: (value) {
 
                               },
                             ),
                             AppTextField(
-                              label: 'Identificación',
-                              hintText: 'Escribe tu número de identificación',
+                              label: l10n.auth_id_label,
+                              hintText: l10n.auth_id_hint,
                               onChanged: (value) {
 
                               },
                             ),
                             AppTextField(
-                              label: 'Email',
-                              hintText: 'Uname@mail.com',
+                              label: l10n.auth_email_label,
+                              hintText: l10n.auth_email_hint,
                               prefixIconData: Icons.person_outline,
                               onChanged: (value) {
 
                               },
                             ),
                             AppTextField(
-                              label: 'Contraseña',
-                              hintText: 'Password',
+                              label: l10n.auth_password_label,
+                              hintText: l10n.auth_password_hint,
                               prefixIconData: Icons.lock_outline,
                               onChanged: (value) {
 
@@ -116,37 +119,37 @@ class SingUpPage extends StatelessWidget {
                           ),
                           children: <TextSpan>[
                             TextSpan(
-                              text: 'Acepto los ',
+                              text: l10n.auth_term_and_policy_part_1,
                               style: Theme.of(context).textTheme.labelMedium
                             ),
                             TextSpan(
-                              text: 'Terminos ',
+                              text: l10n.auth_term_and_policy_part_2,
                               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                 color: Theme.of(context).colorScheme.primary
                               )
                             ),
                             TextSpan(
-                              text: 'y ',
+                              text: l10n.auth_term_and_policy_part_3,
                               style: Theme.of(context).textTheme.labelMedium
                             ),
                             TextSpan(
-                              text: 'Condiciones ',
+                              text: l10n.auth_term_and_policy_part_4,
                               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                 color: Theme.of(context).colorScheme.primary
                               )
                             ),
                             TextSpan(
-                              text: 'y la ',
+                              text: l10n.auth_term_and_policy_part_5,
                               style: Theme.of(context).textTheme.labelMedium
                             ),
                             TextSpan(
-                              text: 'Política de privacidad ',
+                              text: l10n.auth_term_and_policy_part_6,
                               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                 color: Theme.of(context).colorScheme.primary
                               )
                             ),
                             TextSpan(
-                              text: 'de Banca créditos',
+                              text: l10n.auth_term_and_policy_part_7,
                               style: Theme.of(context).textTheme.labelMedium
                             ),
                           ],
@@ -160,17 +163,15 @@ class SingUpPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width*0.04),
                   child: AppFilledButton(
-                    text: 'Continuar',
-                    onPressed: () {
-
-                    },
+                    text: l10n.auth_continue,
+                    onPressed: () => context.push(AppRoutesEnum.signUpCheck.path),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '¿Ya tienes una cuenta?',
+                        l10n.auth_do_you_have_account,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: Colors.grey
                       )
@@ -178,7 +179,7 @@ class SingUpPage extends StatelessWidget {
                     TextButton(
                       onPressed: () => context.push(AppRoutesEnum.singIn.path),
                       child: Text(
-                        'Inicia sesión',
+                        l10n.auth_log_in,
                         style: Theme.of(context).textTheme.labelMedium?.copyWith(
                           color: Theme.of(context).colorScheme.primary
                         )

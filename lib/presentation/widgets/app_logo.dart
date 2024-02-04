@@ -1,5 +1,6 @@
-import 'package:banca_creditos/config/localization/app_localization.dart';
 import 'package:flutter/material.dart';
+
+import 'package:banca_creditos/config/localization/app_localization.dart';
 
 
 

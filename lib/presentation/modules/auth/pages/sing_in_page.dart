@@ -1,10 +1,14 @@
-import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
+
 import 'package:banca_creditos/config/router/app_routes.dart';
-import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
 import 'package:banca_creditos/presentation/widgets/app_logo.dart';
 import 'package:banca_creditos/presentation/widgets/app_text_field.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
+import 'package:banca_creditos/presentation/modules/auth/widgets/external_auth_filled_button.dart';
 
 
 
@@ -14,7 +18,6 @@ class SingInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final l10n = context.l10n;
 
     final topDevicePadding = MediaQuery.of(context).padding.top;
@@ -51,13 +54,13 @@ class SingInPage extends StatelessWidget {
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                          text: 'Inicia sesión o continua, ',
+                          text: l10n.auth_sing_in_message_part_1,
                           style: Theme.of(context).textTheme.labelMedium?.copyWith(
                             fontWeight: FontWeight.bold
                           )
                         ),
                         TextSpan(
-                          text: 'solo te tomará unos minutos.',
+                          text: l10n.auth_sing_in_message_part_2,
                           style: Theme.of(context).textTheme.labelMedium
                         )
                       ],
@@ -74,16 +77,16 @@ class SingInPage extends StatelessWidget {
                         child: Column(
                           children: [
                             AppTextField(
-                              label: 'Email o Usuario',
-                              hintText: 'Uname@mail.com',
+                              label: l10n.auth__email_or_user_label,
+                              hintText: l10n.auth_email_hint,
                               prefixIconData: Icons.person_outline,
                               onChanged: (value) {
 
                               },
                             ),
                             AppTextField(
-                              label: 'Contraseña',
-                              hintText: 'Password',
+                              label: l10n.auth_password_label,
+                              hintText: l10n.auth_password_hint,
                               prefixIconData: Icons.lock_outline,
                               onChanged: (value) {
 
@@ -111,7 +114,7 @@ class SingInPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 15),
                         child: Text(
-                          'Recordarme',
+                          l10n.auth_remember,
                           style: Theme.of(context).textTheme.labelMedium
                         ),
                       ),
@@ -119,7 +122,7 @@ class SingInPage extends StatelessWidget {
                       TextButton(
                         onPressed: () => context.push(AppRoutesEnum.signUp.path),
                         child: Text(
-                          '¿Olvidé mi contraseña?',
+                          l10n.auth_forgot_password,
                           style: Theme.of(context).textTheme.labelMedium?.copyWith(
                               color: Theme.of(context).colorScheme.primary
                           )
@@ -129,40 +132,77 @@ class SingInPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: height*0.012),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: width*0.04),
                   child: AppFilledButton(
-                    text: 'Iniciar sesión',
+                    text: l10n.auth_do_log_in,
                     onPressed: () {
 
                     },
                   ),
                 ),
-
-                const SizedBox(
+                SizedBox(height: height*0.02),
+                SizedBox(
                   height: 20,
+                  width: width*0.85,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Divider(color: Colors.grey, height: 1, thickness: 1),
-                      Text('o'),
-                      Divider(color: Colors.grey, height: 1)
+                      SizedBox(
+                        width: (width*0.425)-12,
+                        child: const Divider(
+                          color: Color(0xffC8D0D9),
+                          height: 1,
+                          thickness: 1
+                        )
+                      ),
+                      const Icon(
+                        Icons.circle_outlined,
+                        color: Color(0xffC8D0D9),
+                        size: 12,
+                      ),
+                      SizedBox(
+                        width: (width*0.425)-12,
+                        child: const Divider(
+                          color: Color(0xffC8D0D9),
+                          height: 1,
+                          thickness: 1
+                        )
+                      ),
                     ],
                   ),
                 ),
+                SizedBox(height: height*0.015),
+                ExternalAuthFilledButton(
+                  text: l10n.auth_sign_in_google,
+                  iconPath: 'assets/google.png',
+                  onPressed: () {
 
+                  },
+                ),
+                SizedBox(height: height*0.01),
+                ExternalAuthFilledButton(
+                  text: l10n.auth_sign_in_apple,
+                  iconPath: 'assets/apple.png',
+                  onPressed: () {
+
+                  },
+                ),
+                SizedBox(height: height*0.022),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '¿No tienes una cuenta?',
+                        l10n.auth_dont_have_account,
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: Colors.grey
                       )
                     ),
                     TextButton(
-                      onPressed: () => context.push(AppRoutesEnum.singIn.path),
+                      onPressed: () => context.push(AppRoutesEnum.signUp.path),
                       child: Text(
-                        'Registrate',
+                        l10n.auth_register_in,
                         style: Theme.of(context).textTheme.labelMedium?.copyWith(
                           color: Theme.of(context).colorScheme.primary
                         )

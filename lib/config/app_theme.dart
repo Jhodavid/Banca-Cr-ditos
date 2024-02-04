@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 
 
@@ -27,6 +26,10 @@ class AppTheme {
       textTheme: const TextTheme().copyWith(
         bodyLarge: const TextStyle(
           color: Colors.black,
+        ),
+        bodyMedium: const TextStyle(
+          color: Colors.grey,
+          fontSize: 14
         ),
         displaySmall: const TextStyle(
           fontSize: 30,
@@ -58,6 +61,7 @@ class AppTheme {
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
+          iconColor: const MaterialStatePropertyAll<Color>(Colors.grey),
           fixedSize: const MaterialStatePropertyAll<Size>(
             Size(double.infinity, 45)
           ),
