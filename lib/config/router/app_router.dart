@@ -1,3 +1,4 @@
+import 'package:banca_creditos/presentation/modules/home/pages/history_detail_page.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -33,9 +34,14 @@ final appRouter = GoRouter(
     GoRoute(
       path: AppRoutesEnum.home.path,
       builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: AppRoutesEnum.historyDetail.path,
+      builder: (context, state) => const HistoryDetailPage(), // todo: pasar por parámetro los datos
     )
   ],
   redirect: (context, state) {
+    // todo: validar sesión activa
     return null;
   },
 );

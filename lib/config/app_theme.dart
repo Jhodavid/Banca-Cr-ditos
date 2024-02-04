@@ -21,7 +21,7 @@ class AppTheme {
   ThemeData getTheme() {
     return ThemeData(
       useMaterial3: true,
-      fontFamily: 'Inter',
+      fontFamily: 'ProductSans',
       colorScheme: colorLightScheme,
       textTheme: const TextTheme().copyWith(
         bodyLarge: const TextStyle(
@@ -74,8 +74,17 @@ class AppTheme {
         )
       ),
       inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Color(0xffC8D0D9)),
           borderRadius: BorderRadius.circular(5)
+        ),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Color(0xffC8D0D9)),
+          borderRadius: BorderRadius.circular(5)
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Color(0xffC8D0D9)),
+          borderRadius: BorderRadius.circular(5),
         ),
       ),
       checkboxTheme: CheckboxThemeData(

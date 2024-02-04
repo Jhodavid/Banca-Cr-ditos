@@ -5,9 +5,6 @@ enum AppRoutesEnum {
   singIn,
   signUpCheck,
   home,
-  homeCalculateLoan,
-  homeCreditOptions,
-  historyResults,
   historyDetail
 }
 
@@ -19,9 +16,6 @@ extension AppRoutesEnumExtension on AppRoutesEnum {
       case AppRoutesEnum.singIn: return '/singIn';
       case AppRoutesEnum.signUpCheck: return '/signUpCheck';
       case AppRoutesEnum.home: return '/home';
-      case AppRoutesEnum.homeCalculateLoan: return '/homeCalculateLoan';
-      case AppRoutesEnum.homeCreditOptions: return '/homeCreditOptions';
-      case AppRoutesEnum.historyResults: return '/historyResults';
       case AppRoutesEnum.historyDetail: return '/historyDetail';
     }
   }
