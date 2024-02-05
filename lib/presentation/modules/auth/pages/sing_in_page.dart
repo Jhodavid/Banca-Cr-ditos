@@ -1,4 +1,7 @@
+import 'package:banca_creditos/infraestruture/utils/AppExceptions.dart';
+import 'package:banca_creditos/presentation/modules/auth/providers/sing_in_form_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:go_router/go_router.dart';
 
@@ -12,12 +15,12 @@ import 'package:banca_creditos/presentation/modules/auth/widgets/external_auth_f
 
 
 
-class SingInPage extends StatelessWidget {
+class SingInPage extends ConsumerWidget {
 
   const SingInPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
 
     final topDevicePadding = MediaQuery.of(context).padding.top;
@@ -25,6 +28,9 @@ class SingInPage extends StatelessWidget {
 
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+
+    final singInFormState = ref.watch(singInFormProvider);
+    final singInFormNotifier = ref.read(singInFormProvider.notifier);
 
     return Scaffold(
       body: GestureDetector(
@@ -81,17 +87,16 @@ class SingInPage extends StatelessWidget {
                               label: l10n.auth__email_or_user_label,
                               hintText: l10n.auth_email_hint,
                               prefixIconData: Icons.person_outline,
-                              onChanged: (value) {
-
-                              },
+                              textCapitalization: TextCapitalization.none,
+                              onChanged: singInFormNotifier.onChangedEmail,
                             ),
                             AppTextField(
+                              obscureText: true,
                               label: l10n.auth_password_label,
                               hintText: l10n.auth_password_hint,
                               prefixIconData: Icons.lock_outline,
-                              onChanged: (value) {
-
-                              },
+                              textCapitalization: TextCapitalization.none,
+                              onChanged: singInFormNotifier.onChangedPassword,
                             ),
                           ],
                         ),
@@ -105,12 +110,10 @@ class SingInPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Checkbox(
-                        value: false,
+                        value: singInFormState.isRemember,
                         checkColor: Colors.white,
-                        fillColor: false ? MaterialStatePropertyAll<Color>(Theme.of(context).colorScheme.primary) : null,
-                        onChanged: (value) {
-
-                        },
+                        fillColor: singInFormState.isRemember ? MaterialStatePropertyAll<Color>(Theme.of(context).colorScheme.primary) : null,
+                        onChanged: (_) => singInFormNotifier.onPressedRemember(),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 15),
@@ -125,7 +128,7 @@ class SingInPage extends StatelessWidget {
                         child: Text(
                           l10n.auth_forgot_password,
                           style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                              color: Theme.of(context).colorScheme.primary
+                            color: Theme.of(context).colorScheme.primary
                           )
                         ),
                       ),
@@ -138,8 +141,28 @@ class SingInPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: width*0.04),
                   child: AppFilledButton(
                     text: l10n.auth_do_log_in,
-                    onPressed: () {
-
+                    onPressed: () async {
+                      try {
+                        await singInFormNotifier.onPressedLogIn(
+                          unCompletedFieldsMessage: l10n.snack_bar_message_fields_not_completed,
+                          authError: l10n.snack_bar_message_invalid_email_or_password
+                        ).then(
+                          (value) => context.go(AppRoutesEnum.home.path)
+                        );
+                      } catch(e) {
+                        if(e is CustomError) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              padding: const EdgeInsets.all(5),
+                              content: Text(e.message),
+                              action: SnackBarAction(
+                                label: l10n.snack_bar_message_close,
+                                onPressed: () {},
+                              ),
+                            )
+                          );
+                        }
+                      }
                     },
                   ),
                 ),

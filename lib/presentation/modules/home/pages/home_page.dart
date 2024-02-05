@@ -64,20 +64,19 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomSheet: BottomNavigationBar(
         currentIndex: _pageIndex,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            // backgroundColor: MyLightTheme.btnGreen,
-            icon: Icon(
+            icon: const Icon(
               Icons.home_rounded
             ),
-            label: 'Home'
+            label: l10n.home_principal
           ),
           BottomNavigationBarItem(
             // backgroundColor: MyLightTheme.btnGreen,
-            icon: Icon(
+            icon: const Icon(
               Icons.wallet_rounded
             ),
-            label: 'Historial créditos'
+            label: l10n.home_credit_history
           )
         ],
         onTap: (value) => HomeModuleUtils.homePageViewController.jumpToPage(value),

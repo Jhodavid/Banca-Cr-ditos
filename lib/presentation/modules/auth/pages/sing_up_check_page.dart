@@ -65,7 +65,7 @@ class SingUpCheckPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: width*0.04),
                 child: AppFilledButton(
                   text: l10n.auth_continue,
-                  onPressed: () => context.push(AppRoutesEnum.home.path),
+                  onPressed: () => context.go(AppRoutesEnum.home.path),
                 ),
               ),
             ],
@@ -82,7 +82,6 @@ class _GradiantBox extends StatelessWidget {
   final Widget child;
 
   const _GradiantBox({
-    super.key,
     required this.child
   });
 

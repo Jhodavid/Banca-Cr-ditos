@@ -46,6 +46,7 @@
     "home_choose_term_12_to_84_months": "Elija un plazo desde 12 hasta 84 meses",
     "home_simulate": "Simular",
     "home_save_quote": "Guardar cotización",
+    "home_principal": "Principal",
     "home_credit_history": "Historial de créditos",
     "home_here_you_will_find_your_credit_history": "Aquí encontrarás tu historial de créditos y el registro de todas las simulaciones.",
     "home_no_more_data_to_show": "No hay mas datos por mostrar",
@@ -66,5 +67,9 @@
     "home_annual_percentage_rate": "Tasa Efectiva Anual desde",
     "home_monthly_percentage_rate": "Tasa Mensual Vencida desde",
     "home_total_amount": "Valor total del prestamo",
-    "home_principal_interest_insurance": "Valor total a pagar\n(capital + interes + seguro)"
+    "home_principal_interest_insurance": "Valor total a pagar\n(capital + interes + seguro)",
+    "snack_bar_message_fields_not_completed": "Campos sin completar.",
+    "snack_bar_message_invalid_email_or_password": "Correo y/o contraseña inválido(s).",
+    "snack_bar_message_not_accepted_terms_and_conditions": "No se han aceptado los terminos y condiciones.",
+    "snack_bar_message_close": "Cerrar"
 }

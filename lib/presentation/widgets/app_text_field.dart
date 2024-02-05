@@ -11,6 +11,9 @@ class AppTextField extends StatelessWidget {
   final IconData? prefixIconData;
   final bool isEnabled;
   final void Function(String value) onChanged;
+  final bool obscureText;
+  final TextInputType keyboardType;
+  final TextCapitalization textCapitalization;
 
   const AppTextField({
     super.key,
@@ -20,7 +23,10 @@ class AppTextField extends StatelessWidget {
     this.helperText,
     this.prefixIconData,
     this.isEnabled = true,
-    required this.onChanged
+    required this.onChanged,
+    this.obscureText = false,
+    this.keyboardType = TextInputType.name,
+    this.textCapitalization = TextCapitalization.sentences
   });
 
   @override
@@ -46,6 +52,9 @@ class AppTextField extends StatelessWidget {
             child: TextField(
               enabled: isEnabled,
               onChanged: onChanged,
+              obscureText: obscureText,
+              keyboardType: keyboardType,
+              textCapitalization: textCapitalization,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.bold
               ),

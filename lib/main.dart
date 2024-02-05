@@ -1,3 +1,4 @@
+import 'package:banca_creditos/presentation/providers/current_user_data_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,6 +24,8 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(currentUserDataProvider);
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       supportedLocales: AppLocalizations.supportedLocales,

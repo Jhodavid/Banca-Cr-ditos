@@ -119,6 +119,20 @@ class AppTheme {
       bottomSheetTheme: const BottomSheetThemeData(
         backgroundColor: Colors.white,
         surfaceTintColor: Colors.white
+      ),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: const Color(0xffd22a3d),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        insetPadding: const EdgeInsets.all(5),
+        behavior: SnackBarBehavior.floating,
+        actionBackgroundColor: Colors.white,
+        actionTextColor: const Color(0xffd22a3d),
+        contentTextStyle: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          // fontWeight: FontWeight.bold
+        )
       )
     );
   }

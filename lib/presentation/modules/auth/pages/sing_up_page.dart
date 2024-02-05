@@ -1,15 +1,16 @@
-import 'package:banca_creditos/presentation/modules/auth/providers/sing_up_form_provider.dart';
+import 'package:banca_creditos/infraestruture/utils/AppExceptions.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:go_router/go_router.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:banca_creditos/config/router/app_routes.dart';
+import 'package:banca_creditos/config/localization/app_localization.dart';
+
 import 'package:banca_creditos/presentation/widgets/app_logo.dart';
 import 'package:banca_creditos/presentation/widgets/app_text_field.dart';
-import 'package:banca_creditos/config/localization/app_localization.dart';
 import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
+import 'package:banca_creditos/presentation/modules/auth/providers/sing_up_form_provider.dart';
 
 
 
@@ -28,7 +29,7 @@ class SingUpPage extends ConsumerWidget {
     final height = MediaQuery.of(context).size.height;
 
     final singUpFormState = ref.watch(singUpFormProvider);
-    final singUpFormNotifier = ref.watch(singUpFormProvider.notifier);
+    final singUpFormNotifier = ref.read(singUpFormProvider.notifier);
 
     return Scaffold(
       body: GestureDetector(
@@ -57,7 +58,6 @@ class SingUpPage extends ConsumerWidget {
                 SizedBox(height: height*0.03),
                 Form(
                   child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
                         width: width*0.85,
@@ -72,18 +72,23 @@ class SingUpPage extends ConsumerWidget {
                             AppTextField(
                               label: l10n.auth_id_label,
                               hintText: l10n.auth_id_hint,
+                              keyboardType: TextInputType.number,
+                              textCapitalization: TextCapitalization.characters,
                               onChanged: singUpFormNotifier.onChangedId,
                             ),
                             AppTextField(
                               label: l10n.auth_email_label,
                               hintText: l10n.auth_email_hint,
                               prefixIconData: Icons.person_outline,
+                              textCapitalization: TextCapitalization.none,
                               onChanged: singUpFormNotifier.onChangedEmail,
                             ),
                             AppTextField(
+                              obscureText: true,
                               label: l10n.auth_password_label,
                               hintText: l10n.auth_password_hint,
                               prefixIconData: Icons.lock_outline,
+                              textCapitalization: TextCapitalization.none,
                               onChanged: singUpFormNotifier.onChangedPassword,
                             ),
                           ],
@@ -167,7 +172,29 @@ class SingUpPage extends ConsumerWidget {
                   padding: EdgeInsets.symmetric(horizontal: width*0.04),
                   child: AppFilledButton(
                     text: l10n.auth_continue,
-                    onPressed: () => context.push(AppRoutesEnum.signUpCheck.path),
+                    onPressed: () async {
+                      try {
+                        await singUpFormNotifier.onPressedContinue(
+                          unCompletedFieldsMessage: l10n.snack_bar_message_fields_not_completed,
+                          termsAndConditionsNotAcceptedMessage: l10n.snack_bar_message_not_accepted_terms_and_conditions
+                        ).then(
+                          (value) => context.go(AppRoutesEnum.signUpCheck.path)
+                        );
+                      } catch(e) {
+                        if(e is CustomError) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              padding: const EdgeInsets.all(5),
+                              content: Text(e.message),
+                              action: SnackBarAction(
+                                label: l10n.snack_bar_message_close,
+                                onPressed: () {},
+                              ),
+                            )
+                          );
+                        }
+                      }
+                    }
                   ),
                 ),
                 Row(

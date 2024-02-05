@@ -63,7 +63,7 @@ class SimulatorTab extends StatelessWidget {
                   ],
                 ),
                 Text(
-                    l10n.home_enter_data_for_your_credit,
+                  l10n.home_enter_data_for_your_credit,
                   style: Theme.of(context).textTheme.bodyLarge
                 ),
                 SizedBox(height: height*0.02),

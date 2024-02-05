@@ -46,6 +46,7 @@
     "home_choose_term_12_to_84_months": "Choose a term from 12 to 84 months",
     "home_simulate": "Simulate",
     "home_save_quote": "Save quote",
+    "home_principal": "Home",
     "home_credit_history": "Credit History",
     "home_here_you_will_find_your_credit_history": "Here you will find your credit history and the record of all simulations.",
     "home_no_more_data_to_show": "No more data to show",
@@ -66,5 +67,9 @@
     "home_annual_percentage_rate": "Annual Effective Rate from",
     "home_monthly_percentage_rate": "Monthly Due Rate from",
     "home_total_amount": "Total loan amount",
-    "home_principal_interest_insurance": "Total amount payable\n(principal + interest + insurance)"
+    "home_principal_interest_insurance": "Total amount payable\n(principal + interest + insurance)",
+    "snack_bar_message_fields_not_completed": "Fields not completed.",
+    "snack_bar_message_invalid_email_or_password": "Invalid email and/or password(s).",
+    "snack_bar_message_not_accepted_terms_and_conditions": "I have not accepted the terms and conditions.",
+    "snack_bar_message_close": "Close"
 }

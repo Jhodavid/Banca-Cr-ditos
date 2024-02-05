@@ -104,7 +104,7 @@ UserEntity _userEntityDeserialize(
           allOffsets,
           CreditSimulation(),
         ) ??
-        [],
+        const [],
     email: reader.readString(offsets[1]),
     fullName: reader.readString(offsets[2]),
     id: reader.readString(offsets[3]),
@@ -127,7 +127,7 @@ P _userEntityDeserializeProp<P>(
             allOffsets,
             CreditSimulation(),
           ) ??
-          []) as P;
+          const []) as P;
     case 1:
       return (reader.readString(offset)) as P;
     case 2:

@@ -20,7 +20,18 @@ class UserEntity {
     required this.fullName,
     required this.id,
     required this.email,
-    required this.creditSimulations
+    this.creditSimulations = const []
   });
 
+  UserEntity copyWithAddSimulation(CreditSimulation simulation) {
+    final simulationList = List<CreditSimulation>.from(creditSimulations);
+    simulationList.add(simulation);
+
+    return UserEntity(
+      fullName: fullName,
+      id: id,
+      email: email,
+      creditSimulations: simulationList
+    );
+  }
 }
