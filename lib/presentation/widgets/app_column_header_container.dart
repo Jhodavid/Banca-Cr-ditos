@@ -21,7 +21,10 @@ class AppColumnHeaderContainer extends StatelessWidget {
       alignment: Alignment.center,
       width: (width*0.9)*portionSize,
       child: Text(
-        title
+        title,
+        style: const TextStyle(
+          fontSize: 13
+        ),
       ),
     );
   }

@@ -30,7 +30,10 @@ class SimulatorDetailTap extends StatelessWidget {
           ),
           child: Column(
             children: [
-              const SimulateDetailFrame(),
+              SizedBox(
+                height: height-190,
+                child: const SimulateDetailFrame()
+              ),
               AppFilledButton(
                 text: l10n.home_save_quote,
                 backgroundColor: Colors.white,

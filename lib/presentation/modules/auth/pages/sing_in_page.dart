@@ -1,5 +1,6 @@
 import 'package:banca_creditos/infraestruture/utils/AppExceptions.dart';
 import 'package:banca_creditos/presentation/modules/auth/providers/sing_in_form_provider.dart';
+import 'package:banca_creditos/presentation/modules/home/utils/snack_bar_messages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -151,15 +152,9 @@ class SingInPage extends ConsumerWidget {
                         );
                       } catch(e) {
                         if(e is CustomError) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              padding: const EdgeInsets.all(5),
-                              content: Text(e.message),
-                              action: SnackBarAction(
-                                label: l10n.snack_bar_message_close,
-                                onPressed: () {},
-                              ),
-                            )
+                          SnackBarMessages.showSnackBar(
+                            e.message,
+                            l10n.snack_bar_message_close
                           );
                         }
                       }

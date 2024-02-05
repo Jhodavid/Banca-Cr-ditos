@@ -21,7 +21,7 @@ const UserEntitySchema = CollectionSchema(
       id: 0,
       name: r'creditSimulations',
       type: IsarType.objectList,
-      target: r'CreditSimulation',
+      target: r'CreditSimulationEntity',
     ),
     r'email': PropertySchema(
       id: 1,
@@ -46,7 +46,7 @@ const UserEntitySchema = CollectionSchema(
   idName: r'isarId',
   indexes: {},
   links: {},
-  embeddedSchemas: {r'CreditSimulation': CreditSimulationSchema},
+  embeddedSchemas: {r'CreditSimulationEntity': CreditSimulationEntitySchema},
   getId: _userEntityGetId,
   getLinks: _userEntityGetLinks,
   attach: _userEntityAttach,
@@ -61,11 +61,11 @@ int _userEntityEstimateSize(
   var bytesCount = offsets.last;
   bytesCount += 3 + object.creditSimulations.length * 3;
   {
-    final offsets = allOffsets[CreditSimulation]!;
+    final offsets = allOffsets[CreditSimulationEntity]!;
     for (var i = 0; i < object.creditSimulations.length; i++) {
       final value = object.creditSimulations[i];
       bytesCount +=
-          CreditSimulationSchema.estimateSize(value, offsets, allOffsets);
+          CreditSimulationEntitySchema.estimateSize(value, offsets, allOffsets);
     }
   }
   bytesCount += 3 + object.email.length * 3;
@@ -80,10 +80,10 @@ void _userEntitySerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeObjectList<CreditSimulation>(
+  writer.writeObjectList<CreditSimulationEntity>(
     offsets[0],
     allOffsets,
-    CreditSimulationSchema.serialize,
+    CreditSimulationEntitySchema.serialize,
     object.creditSimulations,
   );
   writer.writeString(offsets[1], object.email);
@@ -98,11 +98,11 @@ UserEntity _userEntityDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = UserEntity(
-    creditSimulations: reader.readObjectList<CreditSimulation>(
+    creditSimulations: reader.readObjectList<CreditSimulationEntity>(
           offsets[0],
-          CreditSimulationSchema.deserialize,
+          CreditSimulationEntitySchema.deserialize,
           allOffsets,
-          CreditSimulation(),
+          CreditSimulationEntity(),
         ) ??
         const [],
     email: reader.readString(offsets[1]),
@@ -121,11 +121,11 @@ P _userEntityDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readObjectList<CreditSimulation>(
+      return (reader.readObjectList<CreditSimulationEntity>(
             offset,
-            CreditSimulationSchema.deserialize,
+            CreditSimulationEntitySchema.deserialize,
             allOffsets,
-            CreditSimulation(),
+            CreditSimulationEntity(),
           ) ??
           const []) as P;
     case 1:
@@ -773,7 +773,7 @@ extension UserEntityQueryFilter
 extension UserEntityQueryObject
     on QueryBuilder<UserEntity, UserEntity, QFilterCondition> {
   QueryBuilder<UserEntity, UserEntity, QAfterFilterCondition>
-      creditSimulationsElement(FilterQuery<CreditSimulation> q) {
+      creditSimulationsElement(FilterQuery<CreditSimulationEntity> q) {
     return QueryBuilder.apply(this, (query) {
       return query.object(q, r'creditSimulations');
     });
@@ -905,7 +905,7 @@ extension UserEntityQueryProperty
     });
   }
 
-  QueryBuilder<UserEntity, List<CreditSimulation>, QQueryOperations>
+  QueryBuilder<UserEntity, List<CreditSimulationEntity>, QQueryOperations>
       creditSimulationsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'creditSimulations');
@@ -938,9 +938,9 @@ extension UserEntityQueryProperty
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-const CreditSimulationSchema = Schema(
-  name: r'CreditSimulation',
-  id: -5983306675495994032,
+const CreditSimulationEntitySchema = Schema(
+  name: r'CreditSimulationEntity',
+  id: 8037964242191289007,
   properties: {
     r'baseSalary': PropertySchema(
       id: 0,
@@ -956,17 +956,17 @@ const CreditSimulationSchema = Schema(
       id: 2,
       name: r'typeCredit',
       type: IsarType.byte,
-      enumMap: _CreditSimulationtypeCreditEnumValueMap,
+      enumMap: _CreditSimulationEntitytypeCreditEnumValueMap,
     )
   },
-  estimateSize: _creditSimulationEstimateSize,
-  serialize: _creditSimulationSerialize,
-  deserialize: _creditSimulationDeserialize,
-  deserializeProp: _creditSimulationDeserializeProp,
+  estimateSize: _creditSimulationEntityEstimateSize,
+  serialize: _creditSimulationEntitySerialize,
+  deserialize: _creditSimulationEntityDeserialize,
+  deserializeProp: _creditSimulationEntityDeserializeProp,
 );
 
-int _creditSimulationEstimateSize(
-  CreditSimulation object,
+int _creditSimulationEntityEstimateSize(
+  CreditSimulationEntity object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -974,8 +974,8 @@ int _creditSimulationEstimateSize(
   return bytesCount;
 }
 
-void _creditSimulationSerialize(
-  CreditSimulation object,
+void _creditSimulationEntitySerialize(
+  CreditSimulationEntity object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -985,23 +985,23 @@ void _creditSimulationSerialize(
   writer.writeByte(offsets[2], object.typeCredit.index);
 }
 
-CreditSimulation _creditSimulationDeserialize(
+CreditSimulationEntity _creditSimulationEntityDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = CreditSimulation(
+  final object = CreditSimulationEntity(
     baseSalary: reader.readDoubleOrNull(offsets[0]) ?? 0,
     numberOfMonths: reader.readLongOrNull(offsets[1]) ?? 12,
-    typeCredit: _CreditSimulationtypeCreditValueEnumMap[
+    typeCredit: _CreditSimulationEntitytypeCreditValueEnumMap[
             reader.readByteOrNull(offsets[2])] ??
         TypeCreditsEnum.freeInvestmentCredit,
   );
   return object;
 }
 
-P _creditSimulationDeserializeProp<P>(
+P _creditSimulationEntityDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -1013,7 +1013,7 @@ P _creditSimulationDeserializeProp<P>(
     case 1:
       return (reader.readLongOrNull(offset) ?? 12) as P;
     case 2:
-      return (_CreditSimulationtypeCreditValueEnumMap[
+      return (_CreditSimulationEntitytypeCreditValueEnumMap[
               reader.readByteOrNull(offset)] ??
           TypeCreditsEnum.freeInvestmentCredit) as P;
     default:
@@ -1021,21 +1021,21 @@ P _creditSimulationDeserializeProp<P>(
   }
 }
 
-const _CreditSimulationtypeCreditEnumValueMap = {
+const _CreditSimulationEntitytypeCreditEnumValueMap = {
   'vehicleCredit': 0,
   'housingCredit': 1,
   'freeInvestmentCredit': 2,
 };
-const _CreditSimulationtypeCreditValueEnumMap = {
+const _CreditSimulationEntitytypeCreditValueEnumMap = {
   0: TypeCreditsEnum.vehicleCredit,
   1: TypeCreditsEnum.housingCredit,
   2: TypeCreditsEnum.freeInvestmentCredit,
 };
 
-extension CreditSimulationQueryFilter
-    on QueryBuilder<CreditSimulation, CreditSimulation, QFilterCondition> {
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      baseSalaryEqualTo(
+extension CreditSimulationEntityQueryFilter on QueryBuilder<
+    CreditSimulationEntity, CreditSimulationEntity, QFilterCondition> {
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> baseSalaryEqualTo(
     double value, {
     double epsilon = Query.epsilon,
   }) {
@@ -1048,8 +1048,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      baseSalaryGreaterThan(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> baseSalaryGreaterThan(
     double value, {
     bool include = false,
     double epsilon = Query.epsilon,
@@ -1064,8 +1064,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      baseSalaryLessThan(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> baseSalaryLessThan(
     double value, {
     bool include = false,
     double epsilon = Query.epsilon,
@@ -1080,8 +1080,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      baseSalaryBetween(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> baseSalaryBetween(
     double lower,
     double upper, {
     bool includeLower = true,
@@ -1100,8 +1100,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      numberOfMonthsEqualTo(int value) {
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> numberOfMonthsEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'numberOfMonths',
@@ -1110,8 +1110,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      numberOfMonthsGreaterThan(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> numberOfMonthsGreaterThan(
     int value, {
     bool include = false,
   }) {
@@ -1124,8 +1124,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      numberOfMonthsLessThan(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> numberOfMonthsLessThan(
     int value, {
     bool include = false,
   }) {
@@ -1138,8 +1138,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      numberOfMonthsBetween(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> numberOfMonthsBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -1156,8 +1156,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      typeCreditEqualTo(TypeCreditsEnum value) {
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> typeCreditEqualTo(TypeCreditsEnum value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'typeCredit',
@@ -1166,8 +1166,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      typeCreditGreaterThan(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> typeCreditGreaterThan(
     TypeCreditsEnum value, {
     bool include = false,
   }) {
@@ -1180,8 +1180,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      typeCreditLessThan(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> typeCreditLessThan(
     TypeCreditsEnum value, {
     bool include = false,
   }) {
@@ -1194,8 +1194,8 @@ extension CreditSimulationQueryFilter
     });
   }
 
-  QueryBuilder<CreditSimulation, CreditSimulation, QAfterFilterCondition>
-      typeCreditBetween(
+  QueryBuilder<CreditSimulationEntity, CreditSimulationEntity,
+      QAfterFilterCondition> typeCreditBetween(
     TypeCreditsEnum lower,
     TypeCreditsEnum upper, {
     bool includeLower = true,
@@ -1213,5 +1213,5 @@ extension CreditSimulationQueryFilter
   }
 }
 
-extension CreditSimulationQueryObject
-    on QueryBuilder<CreditSimulation, CreditSimulation, QFilterCondition> {}
+extension CreditSimulationEntityQueryObject on QueryBuilder<
+    CreditSimulationEntity, CreditSimulationEntity, QFilterCondition> {}

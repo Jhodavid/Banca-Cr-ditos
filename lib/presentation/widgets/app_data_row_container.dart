@@ -34,7 +34,7 @@ class AppDataRowContainer extends StatelessWidget {
         ),
       ),
       alignment: Alignment.center,
-      child: Text(text, style: TextStyle(color: textColor)),
+      child: Text(text, style: TextStyle(color: textColor, fontSize: 12)),
     );
   }
 }

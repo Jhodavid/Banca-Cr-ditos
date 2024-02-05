@@ -1,7 +1,9 @@
 import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:banca_creditos/infraestruture/utils/AppExceptions.dart';
 import 'package:banca_creditos/presentation/modules/home/providers/simulator_provider.dart';
 import 'package:banca_creditos/presentation/modules/home/utils/home_module_utils.dart';
 import 'package:banca_creditos/presentation/modules/home/utils/input_formatters.dart';
+import 'package:banca_creditos/presentation/modules/home/utils/snack_bar_messages.dart';
 import 'package:banca_creditos/presentation/modules/home/widgets/home_app_bar.dart';
 import 'package:banca_creditos/presentation/modules/home/widgets/pop_type_credits.dart';
 import 'package:banca_creditos/presentation/modules/home/widgets/simulate_modal_bottom_sheet.dart';
@@ -102,6 +104,7 @@ class SimulatorTab extends ConsumerWidget {
                   labelTextColor: Colors.black,
                   hintText: '48',
                   helperText: l10n.home_choose_term_12_to_84_months,
+                  keyboardType: TextInputType.number,
                   onChanged: simulateNotifier.onChangedNumberOfMonths,
                 ),
                 SizedBox(height: height*0.03),
@@ -109,7 +112,22 @@ class SimulatorTab extends ConsumerWidget {
                   padding: EdgeInsets.symmetric(horizontal: width*0.04),
                   child: AppFilledButton(
                     text: l10n.home_simulate,
-                    onPressed: () => HomeModuleUtils.homePageViewController.jumpToPage(2)
+                    onPressed: () {
+                      try {
+                        simulateNotifier.simulateCredit(
+                          unCompletedFieldsMessage: l10n.snack_bar_message_fields_not_completed,
+                          monthsOutOfRangeMessage: l10n.snack_bar_message_months_out_of_range
+                        );
+                        HomeModuleUtils.homePageViewController.jumpToPage(2);
+                      } catch(e) {
+                        if(e is CustomError) {
+                          SnackBarMessages.showSnackBar(
+                            e.message,
+                            l10n.snack_bar_message_close
+                          );
+                        }
+                      }
+                    }
                   ),
                 ),
               ],

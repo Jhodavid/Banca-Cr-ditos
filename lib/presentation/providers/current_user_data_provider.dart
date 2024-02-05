@@ -24,7 +24,7 @@ class CurrentUserDataNotifier extends StateNotifier<CurrentUserDataState> {
     );
   }
 
-  void saveCreditSimulation(CreditSimulation simulation) {
+  void saveCreditSimulation(CreditSimulationEntity simulation) {
     state = state.copyWith(
       currentUser: state.currentUser?.copyWithAddSimulation(simulation)
     );

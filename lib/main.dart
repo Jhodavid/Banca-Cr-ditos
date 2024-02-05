@@ -18,6 +18,8 @@ void main() async {
   );
 }
 
+final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
 class MyApp extends ConsumerWidget {
 
   const MyApp({super.key});
@@ -27,6 +29,7 @@ class MyApp extends ConsumerWidget {
     ref.watch(currentUserDataProvider);
 
     return MaterialApp.router(
+      scaffoldMessengerKey: scaffoldMessengerKey,
       debugShowCheckedModeBanner: false,
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,

@@ -3,7 +3,7 @@ import 'package:isar/isar.dart';
 
 
 part 'user_entity.g.dart';
-part 'credit_simulation.dart';
+part 'credit_simulation_entity.dart';
 
 
 @Collection()
@@ -13,7 +13,7 @@ class UserEntity {
   final String fullName;
   final String id;
   final String email;
-  final List<CreditSimulation> creditSimulations;
+  final List<CreditSimulationEntity> creditSimulations;
 
   UserEntity({
     this.isarId = Isar.autoIncrement,
@@ -23,8 +23,8 @@ class UserEntity {
     this.creditSimulations = const []
   });
 
-  UserEntity copyWithAddSimulation(CreditSimulation simulation) {
-    final simulationList = List<CreditSimulation>.from(creditSimulations);
+  UserEntity copyWithAddSimulation(CreditSimulationEntity simulation) {
+    final simulationList = List<CreditSimulationEntity>.from(creditSimulations);
     simulationList.add(simulation);
 
     return UserEntity(

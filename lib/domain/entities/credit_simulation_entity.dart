@@ -2,14 +2,14 @@ part of 'user_entity.dart';
 
 
 @embedded
-class CreditSimulation {
+class CreditSimulationEntity {
 
   @enumerated
   final TypeCreditsEnum typeCredit;
   final double baseSalary;
   final int numberOfMonths;
 
-  CreditSimulation({
+  CreditSimulationEntity({
     this.typeCredit = TypeCreditsEnum.freeInvestmentCredit,
     this.baseSalary = 0,
     this.numberOfMonths = 12
