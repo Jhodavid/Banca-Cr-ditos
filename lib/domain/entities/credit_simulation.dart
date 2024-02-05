@@ -10,7 +10,7 @@ class CreditSimulation {
   final int numberOfMonths;
 
   CreditSimulation({
-    this.typeCredit = TypeCreditsEnum.none,
+    this.typeCredit = TypeCreditsEnum.freeInvestmentCredit,
     this.baseSalary = 0,
     this.numberOfMonths = 12
   });

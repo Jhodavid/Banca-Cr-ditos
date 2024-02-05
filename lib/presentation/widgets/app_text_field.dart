@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 
 
@@ -14,6 +15,8 @@ class AppTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final TextCapitalization textCapitalization;
+  final TextEditingController? controller;
+  final List<TextInputFormatter>? inputFormatters;
 
   const AppTextField({
     super.key,
@@ -26,7 +29,9 @@ class AppTextField extends StatelessWidget {
     required this.onChanged,
     this.obscureText = false,
     this.keyboardType = TextInputType.name,
-    this.textCapitalization = TextCapitalization.sentences
+    this.textCapitalization = TextCapitalization.sentences,
+    this.controller,
+    this.inputFormatters
   });
 
   @override
@@ -52,9 +57,11 @@ class AppTextField extends StatelessWidget {
             child: TextField(
               enabled: isEnabled,
               onChanged: onChanged,
+              controller: controller,
               obscureText: obscureText,
               keyboardType: keyboardType,
               textCapitalization: textCapitalization,
+              inputFormatters: inputFormatters,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.bold
               ),

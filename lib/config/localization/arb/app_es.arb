@@ -68,8 +68,15 @@
     "home_monthly_percentage_rate": "Tasa Mensual Vencida desde",
     "home_total_amount": "Valor total del prestamo",
     "home_principal_interest_insurance": "Valor total a pagar\n(capital + interes + seguro)",
+    "home_result_your_credit_simulator": "Resultado de tu\nsimulador de crédito",
+    "home_we_show_your_amortization_table": "Te presentamos en tu tabla de amortización el resultado del movimiento de tu crédito",
+    "home_credit_table": "Tabla de créditos",
+    "home_download_table": "Descargar tabla",
     "snack_bar_message_fields_not_completed": "Campos sin completar.",
     "snack_bar_message_invalid_email_or_password": "Correo y/o contraseña inválido(s).",
     "snack_bar_message_not_accepted_terms_and_conditions": "No se han aceptado los terminos y condiciones.",
-    "snack_bar_message_close": "Cerrar"
+    "snack_bar_message_close": "Cerrar",
+    "type_credit_vehicle": "Crédito de Vehículo",
+    "type_credit_housing": "Crédito de Vivienda",
+    "type_credit_free_investment": "Crédito de Libre Inversión"
 }

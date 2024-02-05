@@ -1,6 +1,9 @@
-import 'package:banca_creditos/presentation/modules/home/widgets/simulate_data_table.dart';
-import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
 import 'package:flutter/material.dart';
+
+
+import 'package:banca_creditos/config/localization/app_localization.dart';
+import 'package:banca_creditos/presentation/widgets/app_filled_button.dart';
+import 'package:banca_creditos/presentation/modules/home/widgets/simulate_data_table.dart';
 
 
 
@@ -10,8 +13,8 @@ class SimulateDetailFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
 
-    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
     return Expanded(
@@ -19,24 +22,24 @@ class SimulateDetailFrame extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Resultado de tu\nsimulador de crédito',
+            l10n.home_result_your_credit_simulator,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
           Text(
-            'Te presentamos en tu tabla de amortización el resultado del movimiento de tu crédito',
+            l10n.home_we_show_your_amortization_table,
             style: Theme.of(context).textTheme.bodyLarge
           ),
           SizedBox(height: height*0.015),
           Text(
-            'Tabla de créditos',
+            l10n.home_credit_table,
             style: Theme.of(context).textTheme.labelLarge,
           ),
           const SimulateDataTable(),
           const Spacer(),
           AppFilledButton(
-            text: 'Descargar tabla',
+            text: l10n.home_download_table,
             onPressed: () {
 
             },

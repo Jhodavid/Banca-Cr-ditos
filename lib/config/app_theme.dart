@@ -132,6 +132,18 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: Colors.white,
           // fontWeight: FontWeight.bold
+        ),
+      ),
+      menuTheme: const MenuThemeData(
+        style: MenuStyle(
+          surfaceTintColor: MaterialStatePropertyAll<Color>(Colors.white),
+          padding: MaterialStatePropertyAll<EdgeInsets>(EdgeInsets.all(0))
+        )
+      ),
+      menuButtonTheme: const MenuButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll<Color>(Colors.white),
+          surfaceTintColor: MaterialStatePropertyAll<Color>(Colors.white)
         )
       )
     );

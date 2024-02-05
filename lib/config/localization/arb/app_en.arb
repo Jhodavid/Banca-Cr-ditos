@@ -68,8 +68,15 @@
     "home_monthly_percentage_rate": "Monthly Due Rate from",
     "home_total_amount": "Total loan amount",
     "home_principal_interest_insurance": "Total amount payable\n(principal + interest + insurance)",
+    "home_result_your_credit_simulator": "Result of your\ncredit simulator",
+    "home_we_show_your_amortization_table": "We show you in your amortization table the result of the movement of your credit",
+    "home_credit_table": "Credit table",
+    "home_download_table": "Download table",
     "snack_bar_message_fields_not_completed": "Fields not completed.",
     "snack_bar_message_invalid_email_or_password": "Invalid email and/or password(s).",
     "snack_bar_message_not_accepted_terms_and_conditions": "I have not accepted the terms and conditions.",
-    "snack_bar_message_close": "Close"
+    "snack_bar_message_close": "Close",
+    "type_credit_vehicle": "Vehicle Credit",
+    "type_credit_housing": "Housing Credit",
+    "type_credit_free_investment": "Free Investment Credit"
 }

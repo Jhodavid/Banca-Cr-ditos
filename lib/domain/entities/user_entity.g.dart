@@ -996,7 +996,7 @@ CreditSimulation _creditSimulationDeserialize(
     numberOfMonths: reader.readLongOrNull(offsets[1]) ?? 12,
     typeCredit: _CreditSimulationtypeCreditValueEnumMap[
             reader.readByteOrNull(offsets[2])] ??
-        TypeCreditsEnum.none,
+        TypeCreditsEnum.freeInvestmentCredit,
   );
   return object;
 }
@@ -1015,23 +1015,21 @@ P _creditSimulationDeserializeProp<P>(
     case 2:
       return (_CreditSimulationtypeCreditValueEnumMap[
               reader.readByteOrNull(offset)] ??
-          TypeCreditsEnum.none) as P;
+          TypeCreditsEnum.freeInvestmentCredit) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
 }
 
 const _CreditSimulationtypeCreditEnumValueMap = {
-  'none': 0,
-  'vehicleCredit': 1,
-  'housingCredit': 2,
-  'freeInvestmentCredit': 3,
+  'vehicleCredit': 0,
+  'housingCredit': 1,
+  'freeInvestmentCredit': 2,
 };
 const _CreditSimulationtypeCreditValueEnumMap = {
-  0: TypeCreditsEnum.none,
-  1: TypeCreditsEnum.vehicleCredit,
-  2: TypeCreditsEnum.housingCredit,
-  3: TypeCreditsEnum.freeInvestmentCredit,
+  0: TypeCreditsEnum.vehicleCredit,
+  1: TypeCreditsEnum.housingCredit,
+  2: TypeCreditsEnum.freeInvestmentCredit,
 };
 
 extension CreditSimulationQueryFilter
